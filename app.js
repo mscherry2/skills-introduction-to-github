@@ -33,7 +33,7 @@ class CloudStorage {
         const value = valueInput.value.trim();
 
         if (!key || !value) {
-            alert('Please fill in all fields');
+            this.showNotification('Please fill in all fields', 'error');
             return;
         }
 
@@ -45,7 +45,7 @@ class CloudStorage {
             key: key,
             value: value,
             timestamp: new Date().toISOString(),
-            id: Date.now()
+            id: Date.now() + Math.random()
         };
 
         data.push(item);
@@ -159,22 +159,11 @@ class CloudStorage {
         return div.innerHTML;
     }
 
-    showNotification(message) {
+    showNotification(message, type = 'success') {
         // Simple notification (you can enhance this with a toast library)
         const notification = document.createElement('div');
         notification.textContent = message;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            animation: slideIn 0.3s ease-out;
-        `;
+        notification.className = `notification notification-${type}`;
 
         document.body.appendChild(notification);
 
@@ -183,22 +172,6 @@ class CloudStorage {
         }, 3000);
     }
 }
-
-// Add animation for notifications
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Initialize the app when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
