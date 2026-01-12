@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>☁️ Cloud Storage App</h1>
+            <p class="subtitle">Store and manage your information securely</p>
+        </header>
+
+        <div class="storage-section">
+            <div class="input-area">
+                <h2>Add New Item</h2>
+                <form id="storageForm">
+                    <div class="form-group">
+                        <label for="itemKey">Item Name:</label>
+                        <input type="text" id="itemKey" placeholder="e.g., My Note, To-Do List" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemValue">Content:</label>
+                        <textarea id="itemValue" placeholder="Enter your content here..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save to Cloud</button>
+                </form>
+            </div>
+
+            <div class="display-area">
+                <h2>Stored Items</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search items...">
+                </div>
+                <div id="itemsList" class="items-list">
+                    <p class="empty-message">No items stored yet. Add your first item above!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-label">Total Items:</span>
+                <span id="totalItems" class="stat-value">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Storage Used:</span>
+                <span id="storageUsed" class="stat-value">0 KB</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>💡 Tip: This app uses browser storage. For production use, integrate with cloud services like AWS S3, Firebase, or Azure Storage.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
