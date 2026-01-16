@@ -59,6 +59,15 @@ Branches allow you to separate your work from the `main` branch. In other words,
 
 6. Wait about 20 seconds then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
 
+## 🔒 Security Best Practices
+
+When working with GitHub and code repositories, it's important to protect sensitive information:
+
+- **Never commit API keys, tokens, or passwords** to your repository
+- Use environment variables (`.env` files) for secrets - see `.env.example` for a template
+- Review our [Security Guidelines](SECURITY.md) for detailed best practices
+- Enable GitHub's secret scanning in repository settings
+
 <footer>
 
 <!--
